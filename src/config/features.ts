@@ -21,6 +21,6 @@ export const CONFERENCE = {
 
 // Backed by scripts/apps-script/Code.gs. Set to "" to fall back to a mailto: link.
 export const EMAIL_SIGNUP_ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbxTpKmU5dfdh6tOvsEzfHjwgPjKK7Ske6J6LVwfT3DTbuAJ4yp2mAvQAdEzpFS0tG-P/exec";
+  "https://script.google.com/macros/s/AKfycbzGvaNR7qlxU2B6htDRom-EgozfEIYWumCOgx6A6P5vZdWWX9ehfkkSnV4AGdygiC2g5Q/exec";
 
 export const EMAIL_SIGNUP_FORM_TYPE = "email_signup";

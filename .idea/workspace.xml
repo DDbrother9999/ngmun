@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18de2ee7-0871-4ab4-8d79-70fa87d751b7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/committees/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/committees/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/committees/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/committees/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/info/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/info/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/staff/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/staff/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SidebarDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidebarDrawer.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="18de2ee7-0871-4ab4-8d79-70fa87d751b7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +31,65 @@
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.9800326022215509" />
+      <entry key="MS500" value="3.3553970496891052" />
+      <entry key="S2" value="3.8213844141033224" />
+      <entry key="S5" value="3.9271923567653753" />
+      <entry key="S10" value="4.0540625300177915" />
+      <entry key="S30" value="11.635838087739197" />
+      <entry key="S60" value="33.18105057281259" />
+      <entry key="M2" value="67.36233150676682" />
+      <entry key="M5" value="109.4340929140195" />
+      <entry key="M10" value="129.92498372926397" />
+      <entry key="M15" value="137.72335828798722" />
+      <entry key="M30" value="146.0677823294667" />
+      <entry key="H1" value="150.45767903201653" />
+      <entry key="H2" value="152.70943245274304" />
+      <entry key="H4" value="153.84981944744595" />
+      <entry key="D1" value="154.80761927664324" />
+      <entry key="W1" value="154.97250023883652" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.9196866226183578" />
+      <entry key="MS500" value="3.32026769360329" />
+      <entry key="S2" value="3.8102127636692016" />
+      <entry key="S5" value="3.9224979411036958" />
+      <entry key="S10" value="4.05165216786262" />
+      <entry key="S30" value="11.634028397653777" />
+      <entry key="S60" value="33.17710719814724" />
+      <entry key="M2" value="67.35642642220625" />
+      <entry key="M5" value="109.42921188199094" />
+      <entry key="M10" value="129.92185192616063" />
+      <entry key="M15" value="137.72108790976523" />
+      <entry key="M30" value="146.06654752768054" />
+      <entry key="H1" value="150.45703504068365" />
+      <entry key="H2" value="152.70910358737947" />
+      <entry key="H4" value="153.84965326885063" />
+      <entry key="D1" value="154.80759133526988" />
+      <entry key="W1" value="154.972496241181" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -242,7 +287,7 @@
       <workItem from="1746301684537" duration="2025000" />
       <workItem from="1746303747589" duration="168000" />
       <workItem from="1746303940868" duration="73000" />
-      <workItem from="1788389204961" duration="2312000" />
+      <workItem from="1788389204961" duration="2614000" />
     </task>
     <servers />
   </component>
