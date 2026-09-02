@@ -1,14 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // Base path for deployment under /ngmun
     basePath: '/ngmun',
-  
-    // Optimize for static site generation
-    output: 'export',
-  
-    // Ensure proper handling of images
+
     images: {
-      unoptimized: true, // Required for static builds
+      unoptimized: true,
       domains: ['res.cloudinary.com']
     },
     env: {
@@ -17,7 +12,13 @@ const nextConfig = {
     publicRuntimeConfig: {
         basePath: '/ngmun',
       },
-    };
 
-  
+    async redirects() {
+      return [
+        { source: '/', destination: '/ngmun', basePath: false, permanent: false },
+      ];
+    },
+  };
+
+
   export default nextConfig;

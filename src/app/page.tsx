@@ -10,14 +10,39 @@ import {
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import {useScrollAnimation, AnimateOnScroll} from "@/lib/ScrollUtils";
+import {CONFERENCE, FEATURES} from "@/config/features";
+import NotifySignup from "@/components/NotifySignup";
 //import getConfig from "next/config";
 
 //const { publicRuntimeConfig } = getConfig();
 //const basePath = publicRuntimeConfig?.basePath || "";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-
-
+function InfoCard({
+                      href,
+                      title,
+                      description,
+                      icon,
+                  }: {
+    href: string;
+    title: string;
+    description: string;
+    icon: React.ReactNode;
+}) {
+    return (
+        <Link href={href}>
+            <div
+                className="cursor-pointer text-center transform transition-all duration-300 hover:scale-105">
+                <div
+                    className="w-12 h-12 bg-[#4A90E2] rounded-full flex items-center justify-center mx-auto mb-3">
+                    {icon}
+                </div>
+                <h3 className="font-bold text-lg mb-2 text-black">{title}</h3>
+                <p className="text-gray-600 text-sm">{description}</p>
+            </div>
+        </Link>
+    );
+}
 
 export default function Home() {
     const [hasScrolled, setHasScrolled] = useState(false);
@@ -30,6 +55,9 @@ export default function Home() {
             setHasScrolled(true);
         }
     }, [scrollY, hasScrolled]);
+
+    const showAnyInfoCard =
+        FEATURES.SHOW_EVENT_INFO_CARD || FEATURES.SHOW_COMMITTEES || FEATURES.SHOW_STAFF;
 
     return (
         <main className="min-h-screen bg-gray-50 overflow-x-hidden">
@@ -68,28 +96,38 @@ export default function Home() {
 
                 <div className="relative z-30 text-center px-4 md:px-0 max-w-3xl xl:-mt-80 -mt-48">
                     <h1 className="text-white font-bold mb-4">
-            <span className="block text-md font-medium animate-fade-in-up">
-              THE EIGHTH SESSION 
+            <span className="block text-md font-medium tracking-[0.2em] animate-fade-in-up">
+              {FEATURES.SAVE_THE_DATE ? "SAVE THE DATE" : CONFERENCE.sessionLabel}
             </span>
                         <span className="block text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-2 animate-fade-in-down">
               Noble and Greenough
-              <br/> Model UN VIII
+              <br/> Model UN IX
             </span>
                     </h1>
 
                     <p className="text-white text-base md:text-lg mb-8 max-w-xl mx-auto animate-fade-in">
-                        Sunday, May 3, 2026
+                        {CONFERENCE.date}
                     </p>
-                    <Link href="/register">
-                        <Button
-                            variant="expandIcon"
-                            Icon={ArrowRight}
-                            iconPlacement="right"
-                            className="group backdrop-blur-sm bg-white/10 hover:bg-white/20 border border-white/50 text-white rounded-md h-12 px-8 text-base font-medium transition-all duration-300 animate-fade-in"
-                        >
-                            Register Today!
-                        </Button>
-                    </Link>
+
+                    {FEATURES.REGISTRATION_OPEN ? (
+                        <Link href="/register">
+                            <Button
+                                variant="expandIcon"
+                                Icon={ArrowRight}
+                                iconPlacement="right"
+                                className="group backdrop-blur-sm bg-white/10 hover:bg-white/20 border border-white/50 text-white rounded-md h-12 px-8 text-base font-medium transition-all duration-300 animate-fade-in"
+                            >
+                                Register Today!
+                            </Button>
+                        </Link>
+                    ) : FEATURES.EMAIL_SIGNUP ? (
+                        <div className="animate-fade-in">
+                            <p className="text-white/90 text-sm md:text-base mb-4">
+                                Enter your email to be notified when registration opens.
+                            </p>
+                            <NotifySignup variant="hero"/>
+                        </div>
+                    ) : null}
                 </div>
                 {hasScrolled ? null :
                     <div
@@ -106,7 +144,7 @@ export default function Home() {
                     <AnimateOnScroll>
                         <div className="text-center mb-12">
                             <h2 className="text-2xl md:text-3xl font-bold mb-3 text-black">
-                                Welcome to NGMUN VIII
+                                Welcome to {CONFERENCE.name}
                             </h2>
                             <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
                                 NGMUN is a one-day high school Model UN conference dedicated to
@@ -120,188 +158,202 @@ export default function Home() {
                     </AnimateOnScroll>
 
                     {/* Info Cards Section */}
+                    {showAnyInfoCard && (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                         {/* Event Information Card */}
+                        {FEATURES.SHOW_EVENT_INFO_CARD && (
                         <AnimateOnScroll>
-                            <Link href="/info">
-                                <div
-                                    className="cursor-pointer text-center transform transition-all duration-300 hover:scale-105">
-                                    <div
-                                        className="w-12 h-12 bg-[#4A90E2] rounded-full flex items-center justify-center mx-auto mb-3">
-                                        <svg
-                                            className="w-6 h-6 text-white"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <h3 className="font-bold text-lg mb-2 text-black">
-                                        Event Information
-                                    </h3>
-                                    <p className="text-gray-600 text-sm">
-                                        Find out everything you need to know about the conference.
-                                    </p>
-                                </div>
-                            </Link>
+                            <InfoCard
+                                href="/info"
+                                title="Event Information"
+                                description="Find out everything you need to know about the conference."
+                                icon={
+                                    <svg
+                                        className="w-6 h-6 text-white"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                        />
+                                    </svg>
+                                }
+                            />
                         </AnimateOnScroll>
+                        )}
 
                         {/* Committees Card */}
+                        {FEATURES.SHOW_COMMITTEES && (
                         <AnimateOnScroll className="delay-200">
-                            <Link href="/committees">
-                                <div
-                                    className="cursor-pointer text-center transform transition-all duration-300 hover:scale-105">
-                                    <div
-                                        className="w-12 h-12 bg-[#4A90E2] rounded-full flex items-center justify-center mx-auto mb-3">
-                                        <svg
-                                            className="w-6 h-6 text-white"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <h3 className="font-bold text-lg mb-2 text-black">
-                                        Committees
-                                    </h3>
-                                    <p className="text-gray-600 text-sm">
-                                        Explore our diverse range of committees and topics.
-                                    </p>
-                                </div>
-                            </Link>
+                            <InfoCard
+                                href="/committees"
+                                title="Committees"
+                                description="Explore our diverse range of committees and topics."
+                                icon={
+                                    <svg
+                                        className="w-6 h-6 text-white"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                                        />
+                                    </svg>
+                                }
+                            />
                         </AnimateOnScroll>
+                        )}
 
                         {/* Staff Card */}
+                        {FEATURES.SHOW_STAFF && (
                         <AnimateOnScroll className="delay-400">
-                            <Link href="/staff">
-                                <div
-                                    className="cursor-pointer text-center transform transition-all duration-300 hover:scale-105">
-                                    <div
-                                        className="w-12 h-12 bg-[#4A90E2] rounded-full flex items-center justify-center mx-auto mb-3">
-                                        <svg
-                                            className="w-6 h-6 text-white"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <h3 className="font-bold text-lg mb-2 text-black">Staff</h3>
-                                    <p className="text-gray-600 text-sm">
-                                        Meet our dedicated team of student leaders.
-                                    </p>
-                                </div>
-                            </Link>
+                            <InfoCard
+                                href="/staff"
+                                title="Staff"
+                                description="Meet our dedicated team of student leaders."
+                                icon={
+                                    <svg
+                                        className="w-6 h-6 text-white"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                        />
+                                    </svg>
+                                }
+                            />
                         </AnimateOnScroll>
+                        )}
                     </div>
+                    )}
 
                     {/* Team Section */}
-                    <AnimateOnScroll>
-                        <div className="text-center mb-8">
-                            <h2 className="text-2xl md:text-3xl font-bold text-black mb-3">
-                                Meet the Secretariat
-                            </h2>
-                            <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
-                                Our dedicated leadership team works tirelessly to ensure NGMUN
-                                provides an exceptional experience for all delegates.
-                            </p>
-                        </div>
-                    </AnimateOnScroll>
-
-                    {/* Staff Profiles Section */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                        {/* Staff profile cards */}
-                        {[
-                            {
-                                name: "Ben Gelber",
-                                role: "Secretary General",
-                                description:
-                                    "Ben is a Senior at the Noble and Greenough School",
-                                    img: `${basePath}/profiles/Benjamin_Gelber.jpg`,
-                            },
-                            {
-                                name: "Alex Yoon",
-                                role: "Secretary General",
-                                description:
-                                    "Alex is a Senior at the Noble and Greenough School",
-                                img: `${basePath}/profiles/Alexander_Yoon.jpg`,
-                            },
-                            {
-                                name: "Seynabou Seck",
-                                role: "Undersecretary General",
-                                description:
-                                    "Seynabou is a Junior at the Noble and Greenough School",
-                                img: `${basePath}/profiles/Seynabou_Seck.jpg`,
-                            },
-                            {
-                                name: "Camilla Mangal",
-                                role: "Undersecretary General",
-                                description:
-                                    "Camilla is a Junior at the Noble and Greenough School",
-                                img: `${basePath}/profiles/Camilla_Mangal.jpg`,
-                            }
-                        ].map((profile, index) => (
-                            <AnimateOnScroll
-                                key={profile.name}
-                                className={`delay-${index * 200}`}
-                            >
-                                <div className="text-center">
-                                    <div
-                                        className="relative w-24 h-24 md:w-32 md:h-32 mx-auto overflow-hidden rounded-full">
-                                        <Image
-                                            src={profile.img}
-                                            alt={profile.role}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <h3 className="font-bold text-lg mb-1 text-black">
-                                        {profile.name}
-                                    </h3>
-                                    <p className="text-[#4A90E2] font-medium text-sm mb-1">
-                                        {profile.role}
+                    {FEATURES.SHOW_STAFF ? (
+                        <>
+                            <AnimateOnScroll>
+                                <div className="text-center mb-8">
+                                    <h2 className="text-2xl md:text-3xl font-bold text-black mb-3">
+                                        Meet the Secretariat
+                                    </h2>
+                                    <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
+                                        Our dedicated leadership team works tirelessly to ensure NGMUN
+                                        provides an exceptional experience for all delegates.
                                     </p>
-                                    <p className="text-gray-600 text-xs">{profile.description}</p>
                                 </div>
                             </AnimateOnScroll>
-                        ))}
-                    </div>
 
-                    {/* Meet More Team Members Section */}
-                    <div className="text-center pb-4">
-                        <h3 className="text-xl font-bold mb-3 text-black">
-                            Meet the NGMUN Team
-                        </h3>
-                        <p className="text-gray-600 text-sm mb-4 max-w-xl mx-auto">
-                            Our conference is made possible by a dedicated group of committee
-                            chairs, staff members, and volunteers.
-                        </p>
-                        <Link href="/staff">
-                            <Button
-                                className="bg-white text-[#4A90E2] hover:bg-[#4A90E2] hover:text-white border-2 border-[#4A90E2] rounded-full px-4 py-1 text-sm inline-flex items-center gap-2 transition-colors duration-200">
-                                Meet the Full Team
-                                <ChevronRight className="w-4 h-4"/>
-                            </Button>
-                        </Link>
-                    </div>
+                            {/* Staff Profiles Section */}
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                                {/* Staff profile cards */}
+                                {[
+                                    {
+                                        name: "Ben Gelber",
+                                        role: "Secretary General",
+                                        description:
+                                            "Ben is a Senior at the Noble and Greenough School",
+                                        img: `${basePath}/profiles/Benjamin_Gelber.jpg`,
+                                    },
+                                    {
+                                        name: "Alex Yoon",
+                                        role: "Secretary General",
+                                        description:
+                                            "Alex is a Senior at the Noble and Greenough School",
+                                        img: `${basePath}/profiles/Alexander_Yoon.jpg`,
+                                    },
+                                    {
+                                        name: "Seynabou Seck",
+                                        role: "Undersecretary General",
+                                        description:
+                                            "Seynabou is a Junior at the Noble and Greenough School",
+                                        img: `${basePath}/profiles/Seynabou_Seck.jpg`,
+                                    },
+                                    {
+                                        name: "Camilla Mangal",
+                                        role: "Undersecretary General",
+                                        description:
+                                            "Camilla is a Junior at the Noble and Greenough School",
+                                        img: `${basePath}/profiles/Camilla_Mangal.jpg`,
+                                    }
+                                ].map((profile, index) => (
+                                    <AnimateOnScroll
+                                        key={profile.name}
+                                        className={`delay-${index * 200}`}
+                                    >
+                                        <div className="text-center">
+                                            <div
+                                                className="relative w-24 h-24 md:w-32 md:h-32 mx-auto overflow-hidden rounded-full">
+                                                <Image
+                                                    src={profile.img}
+                                                    alt={profile.role}
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                            </div>
+                                            <h3 className="font-bold text-lg mb-1 text-black">
+                                                {profile.name}
+                                            </h3>
+                                            <p className="text-[#4A90E2] font-medium text-sm mb-1">
+                                                {profile.role}
+                                            </p>
+                                            <p className="text-gray-600 text-xs">{profile.description}</p>
+                                        </div>
+                                    </AnimateOnScroll>
+                                ))}
+                            </div>
+
+                            {/* Meet More Team Members Section */}
+                            <div className="text-center pb-4">
+                                <h3 className="text-xl font-bold mb-3 text-black">
+                                    Meet the NGMUN Team
+                                </h3>
+                                <p className="text-gray-600 text-sm mb-4 max-w-xl mx-auto">
+                                    Our conference is made possible by a dedicated group of committee
+                                    chairs, staff members, and volunteers.
+                                </p>
+                                <Link href="/staff">
+                                    <Button
+                                        className="bg-white text-[#4A90E2] hover:bg-[#4A90E2] hover:text-white border-2 border-[#4A90E2] rounded-full px-4 py-1 text-sm inline-flex items-center gap-2 transition-colors duration-200">
+                                        Meet the Full Team
+                                        <ChevronRight className="w-4 h-4"/>
+                                    </Button>
+                                </Link>
+                            </div>
+                        </>
+                    ) : (
+                        <AnimateOnScroll>
+                            <div className="text-center mb-8 pb-4">
+                                <h2 className="text-2xl md:text-3xl font-bold text-black mb-3">
+                                    Thank you for your interest!
+                                </h2>
+                                <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
+                                    Registration will open soon for {CONFERENCE.name} (
+                                    {CONFERENCE.dateOrdinal})! See more information below!
+                                </p>
+                                {FEATURES.SHOW_EVENT_INFO && (
+                                    <Link href="/info">
+                                        <Button
+                                            className="mt-6 bg-white text-[#4A90E2] hover:bg-[#4A90E2] hover:text-white border-2 border-[#4A90E2] rounded-full px-4 py-1 text-sm inline-flex items-center gap-2 transition-colors duration-200">
+                                            See more information
+                                            <ChevronRight className="w-4 h-4"/>
+                                        </Button>
+                                    </Link>
+                                )}
+                            </div>
+                        </AnimateOnScroll>
+                    )}
                 </div>
             </div>
         </main>

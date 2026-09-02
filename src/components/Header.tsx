@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import SidebarDrawer from "./SidebarDrawer";
+import { FEATURES } from "@/config/features";
 //import getConfig from "next/config";
 
 //const { publicRuntimeConfig } = getConfig();
@@ -32,12 +33,12 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Register", href: "/register" },
-    { name: "Event Information", href: "/info" },
-    { name: "Committees", href: "/committees" },
-    { name: "Staff", href: "/staff" },
-  ];
+    { name: "Home", href: "/", enabled: true },
+    { name: "Register", href: "/register", enabled: FEATURES.REGISTRATION_OPEN },
+    { name: "Event Information", href: "/info", enabled: FEATURES.SHOW_EVENT_INFO },
+    { name: "Committees", href: "/committees", enabled: FEATURES.SHOW_COMMITTEES },
+    { name: "Staff", href: "/staff", enabled: FEATURES.SHOW_STAFF },
+  ].filter((item) => item.enabled);
 
   return (
     <>

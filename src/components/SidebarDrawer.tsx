@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from "framer-motion";
+import { CONFERENCE, FEATURES } from "@/config/features";
 
 interface SidebarDrawerProps {
   isOpen: boolean;
@@ -43,7 +44,7 @@ export default function SidebarDrawer({ isOpen, onClose, navItems }: SidebarDraw
                 {/* Header */}
                 <div className="p-4 border-b flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <h2 className="font-semibold text-lg text-black">NGMUN VII</h2>
+                    <h2 className="font-semibold text-lg text-black">{CONFERENCE.name}</h2>
                   </div>
                   <button
                       onClick={onClose}
@@ -83,17 +84,28 @@ export default function SidebarDrawer({ isOpen, onClose, navItems }: SidebarDraw
                 {/* Footer */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 border-t">
                   <div className="flex flex-col gap-2">
-                    <p className="text-sm text-gray-500">
-                      Join us at NGMUN 2025
-                    </p>
-                    <Link
-                        href="/register"
-                        onClick={onClose}
-                        className="w-full bg-primary text-primary-foreground py-2.5 px-4 rounded-lg text-sm font-medium text-center
+                    {FEATURES.REGISTRATION_OPEN ? (
+                        <>
+                          <p className="text-sm text-gray-500">
+                            Join us at {CONFERENCE.name}
+                          </p>
+                          <Link
+                              href="/register"
+                              onClick={onClose}
+                              className="w-full bg-primary text-primary-foreground py-2.5 px-4 rounded-lg text-sm font-medium text-center
                     hover:bg-primary/90 transition-colors duration-200"
-                    >
-                      Register Now
-                    </Link>
+                          >
+                            Register Now
+                          </Link>
+                        </>
+                    ) : (
+                        <>
+                          <p className="text-sm text-gray-500">Save the date</p>
+                          <p className="text-sm font-medium text-gray-900">
+                            {CONFERENCE.shortDate}
+                          </p>
+                        </>
+                    )}
                   </div>
                 </div>
               </motion.div>

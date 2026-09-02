@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import COMMITTEES from "@/StaffData/Committees";
+import { FEATURES } from "@/config/features";
+import { redirect } from "next/navigation";
 
 const basePath = "/ngmun";
 
@@ -19,6 +21,10 @@ export default function CommitteeDetailPage({
 }: {
   params: CommitteeDetailParams;
 }) {
+  if (!FEATURES.SHOW_COMMITTEES) {
+    redirect("/");
+  }
+
   const committee = COMMITTEES.find((c) => c.id === params.id);
 
   if (!committee) {

@@ -22,6 +22,8 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { CONFERENCE, FEATURES } from "@/config/features";
+import NotifySignup from "@/components/NotifySignup";
 
 interface Delegate {
   name: string;
@@ -29,7 +31,7 @@ interface Delegate {
   experience: string;
 }
 
-export default function Register() {
+function RegistrationForm() {
   const [formData, setFormData] = useState({
     schoolName: "",
     delegationSize: "",
@@ -147,7 +149,7 @@ export default function Register() {
         throw new Error(result.error || 'Submission failed');
       }
     } catch (error) {
-      alert('Error submitting registration. Please try again or contact us at ngmun@nobles.edu');
+      alert(`Error submitting registration. Please try again or contact us at ${CONFERENCE.email}`);
       console.error(error);
     } finally {
       setIsSubmitting(false);
@@ -199,7 +201,7 @@ export default function Register() {
           <div className="relative z-30 text-center px-4">
             <h1 className="text-white font-bold mb-4">
             <span className="block text-3xl md:text-4xl lg:text-5xl mb-2 animate-fade-in-down">
-              Register for NGMUN VIII
+              Register for {CONFERENCE.name}
             </span>
             </h1>
             <p className="text-white text-base md:text-lg animate-fade-in">
@@ -407,10 +409,10 @@ export default function Register() {
             <p className="text-sm text-gray-600 mt-4 text-center">
               Questions? Email{" "}
               <Link
-                href="mailto:ngmun@nobles.edu"
+                href={`mailto:${CONFERENCE.email}`}
                 className="text-[#4A90E2] hover:underline"
               >
-                ngmun@nobles.edu
+                {CONFERENCE.email}
               </Link>
               .
             </p>
@@ -420,4 +422,88 @@ export default function Register() {
         </div>
       </main>
   );
+}
+
+function RegistrationClosed() {
+  return (
+      <main className="min-h-screen bg-gray-50 flex flex-col items-center">
+        {/* Hero section */}
+        <div className="w-full h-[60vh] relative overflow-hidden flex items-center justify-center">
+          <div className="absolute inset-0 bg-blue-800/20 z-10"></div>
+          <div className="absolute inset-0 bg-black/20 z-20"></div>
+
+          <div className="absolute inset-0">
+            <Image
+                src={`${basePath}/registrationBg.jpg`}
+                alt="Registration Background"
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+                priority
+            />
+          </div>
+
+          <div className="relative z-30 text-center px-4">
+            <h1 className="text-white font-bold mb-4">
+            <span className="block text-3xl md:text-4xl lg:text-5xl mb-2 animate-fade-in-down">
+              Registration Opens Soon
+            </span>
+            </h1>
+            <p className="text-white text-base md:text-lg animate-fade-in">
+              {CONFERENCE.name} &middot; {CONFERENCE.date}
+            </p>
+          </div>
+        </div>
+
+        {/* Registration closed notice */}
+        <div className="relative z-40 py-12 px-4 md:px-0 w-full max-w-3xl">
+          <Card className="mt-6 backdrop-blur-sm bg-white/90 shadow-lg">
+            <CardHeader>
+              <CardTitle>Registration is not open yet</CardTitle>
+              <CardDescription>
+                Thank you for your interest! More information including
+                registration, committees, and background guides will be released
+                soon.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {FEATURES.EMAIL_SIGNUP && (
+                  <>
+                    <p className="text-sm text-gray-600 mb-4">
+                      Leave your email and we&apos;ll let you know the moment
+                      registration opens.
+                    </p>
+                    <NotifySignup variant="card"/>
+                  </>
+              )}
+              <Separator className="my-6"/>
+              <div className="text-center">
+                <Link href="/">
+                  <Button
+                      className="bg-white text-[#4A90E2] hover:bg-[#4A90E2] hover:text-white border-2 border-[#4A90E2] rounded-full px-4 py-1 text-sm">
+                    Back to the homepage
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+          <p className="text-sm text-gray-600 mt-4 text-center">
+            Questions? Email{" "}
+            <Link
+                href={`mailto:${CONFERENCE.email}`}
+                className="text-[#4A90E2] hover:underline"
+            >
+              {CONFERENCE.email}
+            </Link>
+            .
+          </p>
+        </div>
+        <div className="pt-20">
+        </div>
+      </main>
+  );
+}
+
+export default function Register() {
+  return FEATURES.REGISTRATION_OPEN ? <RegistrationForm/> : <RegistrationClosed/>;
 }
