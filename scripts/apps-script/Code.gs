@@ -1,5 +1,5 @@
 const CONFIG = {
-  SPREADSHEET_ID: '1FuYiGAU2wvrqpwPsLPnpqrGsDcnmAZWMcKWCUFVr1QU',
+  SPREADSHEET_ID: '11qDRNLPp9vezCMcbW_IecfDjrzTgP_hr3rHzUEhifBU',
   SIGNUPS_SHEET_NAME: 'pre-registration emails',
   HEADERS: ['Timestamp', 'Email', 'Conference'],
 };
