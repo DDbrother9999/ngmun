@@ -12,6 +12,7 @@ import Link from "next/link";
 import {useScrollAnimation, AnimateOnScroll} from "@/lib/ScrollUtils";
 import {CONFERENCE, FEATURES} from "@/config/features";
 import NotifySignup from "@/components/NotifySignup";
+import {leadershipTeam} from "@/StaffData/Staff";
 //import getConfig from "next/config";
 
 //const { publicRuntimeConfig } = getConfig();
@@ -258,60 +259,36 @@ export default function Home() {
                             {/* Staff Profiles Section */}
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                                 {/* Staff profile cards */}
-                                {[
-                                    {
-                                        name: "Ben Gelber",
-                                        role: "Secretary General",
-                                        description:
-                                            "Ben is a Senior at the Noble and Greenough School",
-                                        img: `${basePath}/profiles/Benjamin_Gelber.jpg`,
-                                    },
-                                    {
-                                        name: "Alex Yoon",
-                                        role: "Secretary General",
-                                        description:
-                                            "Alex is a Senior at the Noble and Greenough School",
-                                        img: `${basePath}/profiles/Alexander_Yoon.jpg`,
-                                    },
-                                    {
-                                        name: "Seynabou Seck",
-                                        role: "Undersecretary General",
-                                        description:
-                                            "Seynabou is a Junior at the Noble and Greenough School",
-                                        img: `${basePath}/profiles/Seynabou_Seck.jpg`,
-                                    },
-                                    {
-                                        name: "Camilla Mangal",
-                                        role: "Undersecretary General",
-                                        description:
-                                            "Camilla is a Junior at the Noble and Greenough School",
-                                        img: `${basePath}/profiles/Camilla_Mangal.jpg`,
-                                    }
-                                ].map((profile, index) => (
-                                    <AnimateOnScroll
-                                        key={profile.name}
-                                        className={`delay-${index * 200}`}
-                                    >
-                                        <div className="text-center">
-                                            <div
-                                                className="relative w-24 h-24 md:w-32 md:h-32 mx-auto overflow-hidden rounded-full">
-                                                <Image
-                                                    src={profile.img}
-                                                    alt={profile.role}
-                                                    fill
-                                                    className="object-cover"
-                                                />
+                                {leadershipTeam
+                                    .filter((member) =>
+                                        member.role.toLowerCase().includes("secretary general")
+                                    )
+                                    .map((profile, index) => (
+                                        <AnimateOnScroll
+                                            key={profile.name}
+                                            className={`delay-${index * 200}`}
+                                        >
+                                            <div className="text-center">
+                                                <div
+                                                    className="relative w-24 h-24 md:w-32 md:h-32 mx-auto overflow-hidden border border-gray-200 bg-gray-50">
+                                                    {profile.image !== "" && (
+                                                        <Image
+                                                            src={`${basePath}${profile.image}`}
+                                                            alt={profile.name}
+                                                            fill
+                                                            className="object-cover"
+                                                        />
+                                                    )}
+                                                </div>
+                                                <h3 className="font-bold text-lg mb-1 mt-3 text-black">
+                                                    {profile.name}
+                                                </h3>
+                                                <p className="text-[#4A90E2] font-medium text-sm">
+                                                    {profile.role}
+                                                </p>
                                             </div>
-                                            <h3 className="font-bold text-lg mb-1 text-black">
-                                                {profile.name}
-                                            </h3>
-                                            <p className="text-[#4A90E2] font-medium text-sm mb-1">
-                                                {profile.role}
-                                            </p>
-                                            <p className="text-gray-600 text-xs">{profile.description}</p>
-                                        </div>
-                                    </AnimateOnScroll>
-                                ))}
+                                        </AnimateOnScroll>
+                                    ))}
                             </div>
 
                             {/* Meet More Team Members Section */}

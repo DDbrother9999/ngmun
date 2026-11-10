@@ -16,19 +16,19 @@ const PLACEHOLDER_PORTRAIT = "";
 const leadershipTeam: StaffMember[] = [
     {
         name: "Seynabou Seck",
-        role: "Co-Secretary-General",
+        role: "Secretary General",
         image: "/profiles/Seynabou_Seck.jpg",
         biography: ""
     },
     {
         name: "Camilla Mangal",
-        role: "Co-Secretary-General",
+        role: "Secretary General",
         image: "/profiles/Camilla_Mangal.jpg",
         biography: ""
     },
     {
         name: "Alexandra Curry",
-        role: "Under-Secretary-General",
+        role: "Undersecretary General",
         image: "/profiles/Alex_Curry.jpg",
         biography: ""
     },
