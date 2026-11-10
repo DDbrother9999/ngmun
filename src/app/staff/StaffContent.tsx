@@ -15,23 +15,31 @@ function getImageSrc(image: string): string {
     return `${basePath}${image}`;
 }
 
-function StaffMemberCard({ member }: { member: StaffMember }) {
+function StaffMemberCard({
+    member,
+    showBioPlaceholder = true,
+}: {
+    member: StaffMember;
+    showBioPlaceholder?: boolean;
+}) {
     const hasImage = Boolean(member.image && member.image.trim() !== "");
-    const biography =
-        member.biography && member.biography.trim() !== ""
-            ? member.biography
-            : BIO_PLACEHOLDER;
+    const hasBiography = Boolean(member.biography && member.biography.trim() !== "");
+    const biography = hasBiography
+        ? member.biography
+        : showBioPlaceholder
+          ? BIO_PLACEHOLDER
+          : null;
 
     return (
         <div className="flex gap-5">
-            <div className="h-24 w-24 flex-shrink-0 overflow-hidden border border-gray-200 bg-gray-50 sm:h-28 sm:w-28">
+            <div className="h-32 w-32 flex-shrink-0 overflow-hidden border border-gray-200 bg-gray-50 sm:h-40 sm:w-40">
                 {hasImage && (
                     <div className="relative h-full w-full">
                         <Image
                             src={getImageSrc(member.image)}
                             alt={member.name}
                             fill
-                            sizes="112px"
+                            sizes="(min-width: 640px) 160px, 128px"
                             className="object-cover"
                         />
                     </div>
@@ -41,7 +49,9 @@ function StaffMemberCard({ member }: { member: StaffMember }) {
             <div className="min-w-0 flex-1">
                 <h3 className="font-bold leading-snug text-black">{member.name}</h3>
                 <p className="mt-0.5 text-sm text-black">{member.role}</p>
-                <p className="mt-2 text-sm leading-relaxed text-black">{biography}</p>
+                {biography && (
+                    <p className="mt-2 text-sm leading-relaxed text-black">{biography}</p>
+                )}
             </div>
         </div>
     );
@@ -88,7 +98,7 @@ export default function StaffContent() {
 
             <div className="mx-auto max-w-6xl px-6">
                 <section className="border-b border-gray-200 py-16">
-                    <SectionHeading>Leadership Team</SectionHeading>
+                    <SectionHeading>Secretariat</SectionHeading>
                     <div className="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
                         {leadershipTeam.map((member) => (
                             <AnimateOnScroll key={member.name}>
@@ -99,16 +109,16 @@ export default function StaffContent() {
                 </section>
 
                 <section className="border-b border-gray-200 py-16">
-                    <SectionHeading>Committee Leadership</SectionHeading>
+                    <SectionHeading>Committees</SectionHeading>
                     <div className="mt-12 divide-y divide-gray-200">
                         {committees.map((committee) => (
                             <div key={committee.name} className="py-10 first:pt-0">
                                 <AnimateOnScroll>
-                                    <h3 className="text-center text-sm font-bold text-black">
+                                    <h3 className="text-center text-lg font-bold text-black md:text-xl">
                                         {committee.name}
                                     </h3>
                                 </AnimateOnScroll>
-                                <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
+                                <div className="mt-8 grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
                                     {committee.chairs.map((chair) => (
                                         <AnimateOnScroll key={chair.name}>
                                             <StaffMemberCard member={chair} />
@@ -122,10 +132,10 @@ export default function StaffContent() {
 
                 <section className="py-16">
                     <SectionHeading>Faculty Advisors</SectionHeading>
-                    <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
+                    <div className="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
                         {facultyAdvisors.map((advisor) => (
                             <AnimateOnScroll key={advisor.name}>
-                                <StaffMemberCard member={advisor} />
+                                <StaffMemberCard member={advisor} showBioPlaceholder={false} />
                             </AnimateOnScroll>
                         ))}
                     </div>
