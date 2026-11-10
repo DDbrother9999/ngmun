@@ -131,8 +131,7 @@ export default function CommitteeDetailPage({
 
                   <div className="min-w-0 flex-1">
                     <p className="text-sm text-black">
-                      {chair.role}:{" "}
-                      <span className="font-bold">{chair.name}</span>
+                      <span className="font-bold">{chair.name}</span>, {chair.role}
                     </p>
                     {chair.emailConfirmed && (
                       <a

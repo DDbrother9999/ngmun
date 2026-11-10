@@ -68,8 +68,7 @@ function CommitteeRow({ committee, index }: { committee: Committee; index: numbe
                         <div className="space-y-1 text-sm">
                             {committee.chairs.map((chair) => (
                                 <p key={chair.name} className="text-black">
-                                    {chair.role}:{" "}
-                                    <span className="font-bold">{chair.name}</span>
+                                    <span className="font-bold">{chair.name}</span>, {chair.role}
                                 </p>
                             ))}
                         </div>
