@@ -3,74 +3,140 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { AnimateOnScroll } from "@/lib/ScrollUtils";
-import COMMITTEES from "@/StaffData/Committees";
-import { FEATURES } from "@/config/features";
+import COMMITTEES, { Committee } from "@/StaffData/Committees";
+import { CONFERENCE } from "@/config/features";
+
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+const TINTS = [
+    '#17324D',
+    '#12514F',
+    '#2A3C63',
+    '#1F4E6B',
+    '#3E3A66',
+    '#4A2F4E'
+];
+
+const SECTIONS: { heading: string; type: Committee['type'] }[] = [
+    { heading: "General Assembly", type: "General Assembly" },
+    { heading: "Crisis", type: "Crisis" }
+];
+
+function CommitteeRow({ committee, index }: { committee: Committee; index: number }) {
+    const flipped = index % 2 === 1;
+
+    return (
+        <AnimateOnScroll>
+            <Link href={`/committees/${committee.id}`} className="group block">
+                <div
+                    className={`flex flex-col gap-8 py-12 md:flex-row md:items-center md:gap-14 ${
+                        flipped ? 'md:flex-row-reverse' : ''
+                    }`}
+                >
+                    <div className="relative h-56 w-full overflow-hidden md:h-72 md:w-2/5">
+                        <Image
+                            src={`${basePath}/${committee.image}`}
+                            alt=""
+                            fill
+                            sizes="(max-width: 768px) 100vw, 40vw"
+                            quality={60}
+                            className="object-cover grayscale"
+                        />
+                        <div
+                            className="absolute inset-0 mix-blend-multiply"
+                            style={{ backgroundColor: TINTS[index % TINTS.length] }}
+                        />
+                        <div className="absolute inset-0 bg-black/25" />
+                        <div className="absolute inset-0 flex items-center justify-center p-6">
+                            <span
+                                className="text-center text-2xl font-bold uppercase leading-tight tracking-[0.12em] text-white md:text-3xl"
+                            >
+                                {committee.committeeName}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="md:w-3/5">
+                        <h3
+                            className="mb-4 text-2xl font-bold leading-tight tracking-tight text-black transition-colors group-hover:text-[#4A90E2] md:text-3xl"
+                        >
+                            {committee.title}
+                        </h3>
+                        <p className="mb-8 max-w-xl leading-relaxed text-black">
+                            {committee.shortDescription}
+                        </p>
+                        <div className="space-y-1 text-sm">
+                            {committee.chairs.map((chair) => (
+                                <p key={chair.name} className="text-black">
+                                    {chair.role}:{" "}
+                                    <span className="font-bold">{chair.name}</span>
+                                </p>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </Link>
+        </AnimateOnScroll>
+    );
+}
 
 export default function CommitteesContent() {
     return (
-        <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
-            {/* Hero section similar to Event Info page */}
-            <div className="w-full h-[60vh] relative overflow-hidden flex items-center justify-center">
-                <div className="absolute inset-0 bg-blue-800/20 z-10"></div>
-                <div className="absolute inset-0 bg-black/20 z-20"></div>
+        <main className="min-h-screen bg-white">
+            <div className="relative flex h-[60vh] w-full items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 z-10 bg-[#17324D]/40"></div>
+                <div className="absolute inset-0 z-20 bg-black/30"></div>
 
                 <div className="absolute inset-0">
                     <Image
                         src={`${basePath}/committeesBg.jpg`}
-                        alt="Committees Background"
-                        layout="fill"
-                        objectFit="cover"
+                        alt=""
+                        fill
+                        className="object-cover"
                         quality={100}
                         priority
                     />
                 </div>
 
-                <div className="relative z-30 text-center px-4">
-                    <h1 className="text-white font-bold mb-4">
-              <span className="block text-3xl md:text-4xl lg:text-5xl mb-2 animate-fade-in-down">
-                Conference Committees
-              </span>
+                <div className="relative z-30 px-4 text-center">
+                    <h1
+                        className="animate-fade-in-down text-4xl font-bold uppercase tracking-[0.08em] text-white md:text-5xl lg:text-6xl"
+                    >
+                        Committees
                     </h1>
-                    <p className="text-white text-base md:text-lg animate-fade-in">
-                        Explore the diverse committees at NGMUN VII
+                    <p
+                        className="animate-fade-in mt-4 text-sm font-semibold uppercase tracking-[0.2em] text-white/80 md:text-base"
+                    >
+                        {CONFERENCE.name}
                     </p>
                 </div>
             </div>
 
-            {/* Committees Grid */}
-            <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {COMMITTEES.map((committee) => (
-                        <AnimateOnScroll key={committee.id}>
-                            <Link
-                                href={`/committees/${committee.id}`}
-                                className="block h-full group"
-                            >
-                                <div className="bg-white shadow-lg rounded-xl overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 h-full flex flex-col cursor-pointer">
-                                    <div className="relative h-48 w-full">
-                                        <Image
-                                            src={`${basePath}/${committee.image}`}
-                                            alt={committee.title}
-                                            fill
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            quality={50}
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <div className="p-6 flex-grow flex flex-col">
-                                        <h3 className="text-xl font-bold text-black mb-2 group-hover:text-[#4A90E2] transition-colors">
-                                            {committee.title}
-                                        </h3>
-                                        <p className="text-gray-600 mb-4 flex-grow">
-                                            {committee.shortDescription}
-                                        </p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </AnimateOnScroll>
-                    ))}
-                </div>
+            <div className="mx-auto max-w-6xl px-6">
+                {SECTIONS.map((section) => {
+                    const sectionCommittees = COMMITTEES.filter((c) => c.type === section.type);
+                    if (sectionCommittees.length === 0) return null;
+
+                    return (
+                        <section key={section.type} className="border-b border-gray-200 py-16 last:border-b-0">
+                            <AnimateOnScroll>
+                                <h2 className="text-center text-2xl font-bold uppercase tracking-[0.1em] text-black md:text-3xl">
+                                    {section.heading}
+                                </h2>
+                            </AnimateOnScroll>
+
+                            <div className="mt-6 divide-y divide-gray-200">
+                                {sectionCommittees.map((committee) => (
+                                    <CommitteeRow
+                                        key={committee.id}
+                                        committee={committee}
+                                        index={COMMITTEES.indexOf(committee)}
+                                    />
+                                ))}
+                            </div>
+                        </section>
+                    );
+                })}
             </div>
         </main>
     );

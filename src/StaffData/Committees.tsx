@@ -1,58 +1,110 @@
-const COMMITTEES = [
+interface Chair {
+    name: string;
+    role: string;
+    email: string;
+    emailConfirmed: boolean;
+}
+
+interface Committee {
+    id: string;
+    type: 'General Assembly' | 'Crisis';
+    title: string;
+    committeeName: string;
+    shortDescription: string;
+    image: string;
+    fullDescription: string;
+    chairs: Chair[];
+    backgroundGuideUrl: string;
+}
+
+const PLACEHOLDER_IMAGE = '/committeesBg.jpg';
+
+const COMMITTEES: Committee[] = [
     {
-        id: 'interplanetary-expansion',
-        title: 'Interplanetary Expansion',
-        shortDescription: 'Governing expansion beyond Earth: law, security, and shared responsibility in space.',
-        image: '/committees/interplanetaryBg.jpg', // Assume you have corresponding images
-        fullDescription: `As humanity’s technological capabilities push beyond the Earth’s atmosphere, the international community faces a new and unprecedented domain of governance. Interplanetary Expansion, once a distant aspiration, now raises urgent questions of international law, collective security, environmental stewardship, and equitable access to extraterrestrial resources. Delegates must consider how existing international frameworks apply beyond Earth, how emerging technologies should be regulated, and how to prevent conflict in an increasingly contested extraterrestrial environment. The resolutions passed in this committee will not only shape humanity’s future in space, but the principles by which it expands.`,
-        backgroundGuideUrl: `https://drive.google.com/file/d/1kWXWvLWml6nabED9JKJE_RyValu1Dv78/view?usp=sharing`,
-        emailContact: 'amohammed27@nobles.edu'
+        id: 'sochum',
+        type: 'General Assembly',
+        committeeName: 'SOCHUM',
+        title: 'Protecting Indigenous Land Defenders and Environmental Refugees',
+        shortDescription: 'Protections for Indigenous land defenders and communities displaced by environmental harm.',
+        image: PLACEHOLDER_IMAGE,
+        fullDescription: `SOCHUM will address threats facing Indigenous land defenders and the growing displacement of communities affected by environmental degradation, exploring international protections and accountability.`,
+        chairs: [
+            { name: 'Chloe Coleman', role: 'Head Chair', email: 'ccoleman27@nobles.edu', emailConfirmed: true },
+            { name: 'Eli Wember', role: 'Co-Chair', email: 'ewember29@nobles.edu', emailConfirmed: true }
+        ],
+        backgroundGuideUrl: ''
     },
     {
-        id: 'prohibition',
-        title: 'Prohibition',
-        shortDescription: 'Dealing with the link behind prohibition and organized crime',
-        image: '/committees/prohibitionBg.jpg',
-        fullDescription: `The St. Valentine’s Day Massacre Crisis Committee is centered around the response to the event itself and the surrounding ideas of prohibition and organized crime. In this committee, delegates will represent gangsters, government officials, and local leaders, addressing the immediate crisis while navigating political agendas and alliances.`,
-        backgroundGuideUrl: `https://drive.google.com/file/d/1AvhJpE4e1ozAmb6zqBwzlZDoXKFNTRm8/view?usp=sharing`,
-        emailContact: 'jfair27@nobles.edu'
+        id: 'ecofin',
+        type: 'General Assembly',
+        committeeName: 'ECOFIN',
+        title: 'Deep Sea Mining and the Future of the Ocean',
+        shortDescription: 'The economic, environmental, and geopolitical stakes of mining the deep sea.',
+        image: PLACEHOLDER_IMAGE,
+        fullDescription: `ECOFIN will examine the economic, environmental, and geopolitical implications of deep-sea mining and debate how the international community should regulate the future of ocean resources.`,
+        chairs: [
+            { name: 'Sanaaya Hora', role: 'Head Chair', email: 'shora28@nobles.edu', emailConfirmed: true },
+            { name: 'Teddy Dlugosch', role: 'Co-Chair', email: 'tdlugosch29@nobles.edu', emailConfirmed: true }
+        ],
+        backgroundGuideUrl: ''
     },
     {
-        id: 'marvel-sokovia-accords',
-        title: 'The Marvel Sokovia Accords',
-        shortDescription: 'Safety or Freedom: how should we regulate superhumans?',
-        image: '/committees/sokoviaBg.jpg',
-        fullDescription: `Set between Avengers: Age of Ultron and Captain America: Civil War, the aftermath of the battle of Sokovia has the world demanding accountability for superhuman power. Now introduced to the UN, the Sokovia Accords proposes placing enhanced individuals under international oversight, but potentially at the cost of autonomy and moral judgement. This committee will confront the central question: who controls the Avengers when the fate of the world is at stake? Choose regulation or resistance – Ironman or Captain America’s side – because indecision may be the most dangerous of them all.`,
-        backgroundGuideUrl: `https://drive.google.com/file/d/1TFp1gC0L9ZWKHh_QP-bE8z5IgLlkaVo4/view?usp=sharing`,
-        emailContact: 'lpeloquin27@nobles.edu '
+        id: 'disec',
+        type: 'General Assembly',
+        committeeName: 'DISEC',
+        title: 'The Sudan Crisis',
+        shortDescription: 'Regional security, civilian protection, and the path to peace in Sudan.',
+        image: PLACEHOLDER_IMAGE,
+        fullDescription: `DISEC will address the ongoing conflict in Sudan, examining its implications for regional security, international intervention, civilian protection, and the international community's responsibility to pursue peace.`,
+        chairs: [
+            { name: 'Bella Bessa Mackenzie-Grieve', role: 'Head Chair', email: 'bbessa28@nobles.edu', emailConfirmed: true },
+            { name: 'Luana Keefe', role: 'Co-Chair', email: 'lkeefe29@nobles.edu', emailConfirmed: true }
+        ],
+        backgroundGuideUrl: ''
     },
     {
-        id: 'roman-advisory-council',
-        title: 'Roman Advisory Council',
-        shortDescription: 'Fighting for power after the death of Emperor Nero',
-        image: '/committees/romanBg.jpg',
-        fullDescription: `The Roman Advisory Council is a fast-paced crisis set after the death of the Emperor Nero, who had no designated successor, as various Roman figures vie for control of the vast and prosperous empire. Delegates in this committee will seek to ensure the Roman Empire’s survival while promoting their own agenda, working together to adapt to rapid updates that could ruin everything. Will you lead the Romans to eternal glory as the new Emperor, or will you bring them to Tartarus? And be careful– you never know who to trust. Si vis pacem para bellum!.`,
-        backgroundGuideUrl: `https://drive.google.com/file/d/1KKOb24u9K1rsnDrNEGtXggEWTM6dqfUv/view?usp=sharing`,
-        emailContact: 'aliu26@nobles.edu'
+        id: 'arendelle-succession-crisis',
+        type: 'Crisis',
+        committeeName: 'Frozen',
+        title: 'Arendelle Succession Crisis',
+        shortDescription: 'Anna and Elsa summon Arendelle’s advisors to decide the kingdom’s political future.',
+        image: PLACEHOLDER_IMAGE,
+        fullDescription: `Anna and Elsa are struggling to govern Arendelle following a major crisis, prompting them to call upon advisors, dignitaries, and influential figures to help determine the kingdom's political future.`,
+        chairs: [
+            { name: 'Lucy Wildeman', role: 'Head Chair', email: 'lwildeman28@nobles.edu', emailConfirmed: true },
+            { name: 'Cole Ogden', role: 'Co-Chair', email: 'cogden27@nobles.edu', emailConfirmed: true }
+        ],
+        backgroundGuideUrl: ''
     },
     {
-        id: 'unesco-world-heritage-sites',
-        title: 'UNESCO World Heritage Sites',
-        shortDescription: 'Preserving world heritage sites amidst growing environmental and global instability',
-        image: '/committees/unescoBg.jpg',
-        fullDescription: `The United Nations Educational, Scientific, and Cultural Organization is a specialized agency tasked within this committee with finding feasible and sustainable solutions to threats to World Heritage sites. Delegates will engage in meaningful dialogue to address pertinent issues such as climate change and conflict. Delegates will have to balance debate and collaboration while considering both their sovereign interests and the greater good.`,
-        backgroundGuideUrl: `https://drive.google.com/file/d/1Yjhqny0cxDFktSFk-4-eED7ogaMM3xSV/view?usp=sharing`,
-        emailContact: 'ccoleman27@nobles.edu'
+        id: 'house-of-odysseus',
+        type: 'Crisis',
+        committeeName: 'House of Odysseus + Suitors',
+        title: 'The House of Odysseus and the Suitors',
+        shortDescription: 'Suitors besiege Penelope’s palace as control of Ithaca hangs in the balance.',
+        image: PLACEHOLDER_IMAGE,
+        fullDescription: `With Odysseus still missing, Penelope's palace has been overtaken by suitors competing for her hand and control of Ithaca, threatening the future of the House of Odysseus.`,
+        chairs: [
+            { name: 'Sanjit Govindarajan', role: 'Head Chair', email: 'sgovindarajan28@nobles.edu', emailConfirmed: true },
+            { name: 'Maddie Grossman', role: 'Co-Chair', email: 'mgrossman29@nobles.edu', emailConfirmed: true }
+        ],
+        backgroundGuideUrl: ''
     },
     {
-        id: 'vaccines',
-        title: 'Vaccines',
-        shortDescription: 'Managing the equitable and fair access to vaccines',
-        image: '/committees/vaccinesBg.jpg',
-        fullDescription: 'The World Health Organization is the United Nations’ specialized agency for global health. Delegates will engage in meaningful dialogue on vaccines, which have become one of humanity’s most powerful tools to combat disease. Despite their proven effectiveness, equitable vaccine access remains out of reach for millions worldwide, particularly in developing countries. Delegates must work together to find solutions that address the barriers that continue to limit vaccination efforts.',
-        backgroundGuideUrl: `https://drive.google.com/file/d/1Q6ztJy6v33SseUhuw7iRt_UgSVMk8cm7/view?usp=sharing`,
-        emailContact: 'ikong26@nobles.edu'
+        id: 'ministry-of-magic',
+        type: 'Crisis',
+        committeeName: 'Harry Potter + The Ministry of Magic',
+        title: 'The Ministry of Magic',
+        shortDescription: 'Division and corruption force a reckoning over the future of magical governance.',
+        image: PLACEHOLDER_IMAGE,
+        fullDescription: `Amid growing instability in the wizarding world, the Ministry of Magic faces political division, corruption, and threats to its authority, forcing influential witches and wizards to determine the future of magical governance.`,
+        chairs: [
+            { name: 'Lauren Peloquin', role: 'Head Chair', email: 'lpeloquin27@nobles.edu', emailConfirmed: true },
+            { name: 'James Fair', role: 'Co-Chair', email: 'jfair27@nobles.edu', emailConfirmed: true }
+        ],
+        backgroundGuideUrl: ''
     }
 ];
 
-export default COMMITTEES
+export default COMMITTEES;
+export type { Committee, Chair };

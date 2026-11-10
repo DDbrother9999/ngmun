@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18de2ee7-0871-4ab4-8d79-70fa87d751b7" name="Changes" comment="" />
+    <list default="true" id="18de2ee7-0871-4ab4-8d79-70fa87d751b7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StaffData/Committees.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/StaffData/Committees.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StaffData/Staff.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/StaffData/Staff.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/committees/CommitteesContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/committees/CommitteesContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/committees/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/committees/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/staff/StaffContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/staff/StaffContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/features.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/features.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="81" />
+    <option name="cachedIndexableFilesCount" value="86" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,29 +37,33 @@
     &quot;accountId&quot;: &quot;844ccf80-a2d5-4896-97bd-5bc96560575a&quot;
   }
 }</component>
+  <component name="KmpPackageLockUpdaterState">{
+  &quot;jsModulesKotlinGradlePluginVersion&quot;: {},
+  &quot;wasmModulesKotlinGradlePluginVersion&quot;: {}
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.9800326022215509" />
-      <entry key="MS500" value="3.3553970496891052" />
-      <entry key="S2" value="3.8213844141033224" />
-      <entry key="S5" value="3.9271923567653753" />
-      <entry key="S10" value="4.0540625300177915" />
-      <entry key="S30" value="11.635838087739197" />
-      <entry key="S60" value="33.18105057281259" />
-      <entry key="M2" value="67.36233150676682" />
-      <entry key="M5" value="109.4340929140195" />
-      <entry key="M10" value="129.92498372926397" />
-      <entry key="M15" value="137.72335828798722" />
-      <entry key="M30" value="146.0677823294667" />
-      <entry key="H1" value="150.45767903201653" />
-      <entry key="H2" value="152.70943245274304" />
-      <entry key="H4" value="153.84981944744595" />
-      <entry key="D1" value="154.80761927664324" />
-      <entry key="W1" value="154.97250023883652" />
+      <entry key="MS100" value="1.5745892229699119" />
+      <entry key="MS500" value="4.191727171469467" />
+      <entry key="S2" value="14.319648429347001" />
+      <entry key="S5" value="28.851190775391274" />
+      <entry key="S10" value="42.96930476505539" />
+      <entry key="S30" value="60.63513613408317" />
+      <entry key="S60" value="66.83970471881966" />
+      <entry key="M2" value="71.40795480836404" />
+      <entry key="M5" value="93.77203549340771" />
+      <entry key="M10" value="130.5435087453543" />
+      <entry key="M15" value="153.29298974766175" />
+      <entry key="M30" value="184.9332767211326" />
+      <entry key="H1" value="205.1428214432047" />
+      <entry key="H2" value="216.57645493231817" />
+      <entry key="H4" value="222.65924654985622" />
+      <entry key="D1" value="227.92483062216493" />
+      <entry key="W1" value="228.84594815668245" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -72,23 +85,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.9196866226183578" />
-      <entry key="MS500" value="3.32026769360329" />
-      <entry key="S2" value="3.8102127636692016" />
-      <entry key="S5" value="3.9224979411036958" />
-      <entry key="S10" value="4.05165216786262" />
-      <entry key="S30" value="11.634028397653777" />
-      <entry key="S60" value="33.17710719814724" />
-      <entry key="M2" value="67.35642642220625" />
-      <entry key="M5" value="109.42921188199094" />
-      <entry key="M10" value="129.92185192616063" />
-      <entry key="M15" value="137.72108790976523" />
-      <entry key="M30" value="146.06654752768054" />
-      <entry key="H1" value="150.45703504068365" />
-      <entry key="H2" value="152.70910358737947" />
-      <entry key="H4" value="153.84965326885063" />
-      <entry key="D1" value="154.80759133526988" />
-      <entry key="W1" value="154.972496241181" />
+      <entry key="MS100" value="1.5353053789763764" />
+      <entry key="MS500" value="4.133959516711778" />
+      <entry key="S2" value="14.274951832540676" />
+      <entry key="S5" value="28.810450267435126" />
+      <entry key="S10" value="42.92592785884215" />
+      <entry key="S30" value="60.60658450339798" />
+      <entry key="S60" value="66.82249167157968" />
+      <entry key="M2" value="71.3983871282961" />
+      <entry key="M5" value="93.7670721957551" />
+      <entry key="M10" value="130.54008116936953" />
+      <entry key="M15" value="153.29030118656024" />
+      <entry key="M30" value="184.9316458085461" />
+      <entry key="H1" value="205.14191297258247" />
+      <entry key="H2" value="216.575974168032" />
+      <entry key="H4" value="222.65899908142438" />
+      <entry key="D1" value="227.9247883524191" />
+      <entry key="W1" value="228.84594209249735" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -102,38 +115,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/ddbrother/Github/ngmun",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "/Users/ddbrother/Github/ngmun/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ddbrother/Github/ngmun&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/ddbrother/Github/ngmun/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/profiles" />
@@ -144,20 +159,6 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
-    <configuration default="true" type="Python.FlaskServer">
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
     </configuration>
@@ -193,6 +194,22 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
@@ -271,8 +288,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
       </set>
     </attachedChunks>
   </component>
@@ -287,7 +303,7 @@
       <workItem from="1746301684537" duration="2025000" />
       <workItem from="1746303747589" duration="168000" />
       <workItem from="1746303940868" duration="73000" />
-      <workItem from="1788389204961" duration="2614000" />
+      <workItem from="1788389204961" duration="3883000" />
     </task>
     <servers />
   </component>

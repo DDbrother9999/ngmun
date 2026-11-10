@@ -1,165 +1,135 @@
 "use client";
 
-import {Card} from "@/components/ui/card";
 import Image from "next/image";
-import {useEffect, useState} from "react";
-import {leadershipTeam, committees, facultyAdvisors, StaffMember, CommitteeStaff} from "@/StaffData/Staff";
-import {AnimateOnScroll} from "@/lib/ScrollUtils";
-import { FEATURES } from "@/config/features";
+import { leadershipTeam, committees, facultyAdvisors, StaffMember } from "@/StaffData/Staff";
+import { AnimateOnScroll } from "@/lib/ScrollUtils";
+import { CONFERENCE } from "@/config/features";
+import { BIO_PLACEHOLDER } from "@/lib/placeholders";
+
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-export default function StaffContent() {
-    const [mounted, setMounted] = useState(false);
+function getImageSrc(image: string): string {
+    if (image.startsWith("http")) {
+        return image;
+    }
+    return `${basePath}${image}`;
+}
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-
-    // Staff member card component
-    const getImageSrc = (image: string): string => {
-        if (image.startsWith("http")) {
-            return image; // External URL
-        }
-        return `${basePath}${image}`; // Local path with basePath prepended
-    };
-    // Staff member card component
-    const StaffMemberCard = ({member}: { member: StaffMember }) => {
-        const [isExpanded, setIsExpanded] = useState(false);
-
-        // Only show biography and read more button if biography is not empty
-        const hasBiography = member.biography && member.biography.trim() !== '';
-         
-        return (
-            <div className="flex flex-col items-center text-center">
-                <div className="relative w-32 h-32 mb-4">
-                    <Image
-                        src={getImageSrc(member.image)}
-                        alt={member.name}
-                        fill
-                        className="rounded-full object-cover cursor-pointer transition-transform hover:scale-105"
-                        onClick={() => hasBiography && setIsExpanded(!isExpanded)}
-                    />
-                </div>
-                <h3 className="font-bold text-lg text-gray-900">{member.name}</h3>
-                <p className="text-[#4A90E2] font-medium mb-2">{member.role}</p>
-
-                {/* Biography section */}
-                {hasBiography && (
-                    <>
-                        <div
-                            className={`transition-all duration-300 overflow-hidden ${
-                                isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-                            }`}
-                        >
-                            <p className="text-gray-600 text-sm mt-2 px-4">{member.biography}</p>
-                        </div>
-
-                        <button
-                            onClick={() => setIsExpanded(!isExpanded)}
-                            className="mt-2 text-blue-600 hover:text-blue-800 text-sm font-medium"
-                        >
-                            {isExpanded ? "Show Less" : "Read Bio"}
-                        </button>
-                    </>
-                )}
-            </div>
-        );
-    };
+function StaffMemberCard({ member }: { member: StaffMember }) {
+    const hasImage = Boolean(member.image && member.image.trim() !== "");
+    const biography =
+        member.biography && member.biography.trim() !== ""
+            ? member.biography
+            : BIO_PLACEHOLDER;
 
     return (
-        <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
-            <div className="w-full h-[60vh] relative overflow-hidden flex items-center justify-center">
-                <div className="absolute inset-0 bg-blue-800/20 z-10"></div>
-                <div className="absolute inset-0 bg-black/20 z-20"></div>
+        <div className="flex gap-5">
+            <div className="h-24 w-24 flex-shrink-0 overflow-hidden border border-gray-200 bg-gray-50 sm:h-28 sm:w-28">
+                {hasImage && (
+                    <div className="relative h-full w-full">
+                        <Image
+                            src={getImageSrc(member.image)}
+                            alt={member.name}
+                            fill
+                            sizes="112px"
+                            className="object-cover"
+                        />
+                    </div>
+                )}
+            </div>
+
+            <div className="min-w-0 flex-1">
+                <h3 className="font-bold leading-snug text-black">{member.name}</h3>
+                <p className="mt-0.5 text-sm text-black">{member.role}</p>
+                <p className="mt-2 text-sm leading-relaxed text-black">{biography}</p>
+            </div>
+        </div>
+    );
+}
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+    return (
+        <AnimateOnScroll>
+            <h2 className="text-center text-2xl font-bold uppercase tracking-[0.1em] text-black md:text-3xl">
+                {children}
+            </h2>
+        </AnimateOnScroll>
+    );
+}
+
+export default function StaffContent() {
+    return (
+        <main className="min-h-screen bg-white">
+            <div className="relative flex h-[60vh] w-full items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 z-10 bg-[#17324D]/40"></div>
+                <div className="absolute inset-0 z-20 bg-black/30"></div>
 
                 <div className="absolute inset-0">
                     <Image
-                         src={`${basePath}/staffBg.jpg`}
-                        alt="Staff Background"
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center 40%"
+                        src={`${basePath}/staffBg.jpg`}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        style={{ objectPosition: "center 40%" }}
                         quality={100}
                         priority
                     />
                 </div>
 
-                <div className="relative z-30 text-center px-4">
-                    <h1 className="text-white font-bold mb-4">
-            <span className="block text-3xl md:text-4xl lg:text-5xl mb-2 animate-fade-in-down">
-              Meet Our Team
-            </span>
+                <div className="relative z-30 px-4 text-center">
+                    <h1 className="animate-fade-in-down text-4xl font-bold uppercase tracking-[0.08em] text-white md:text-5xl lg:text-6xl">
+                        Staff
                     </h1>
-                    <p className="text-white text-base md:text-lg animate-fade-in">
-                        The dedicated staff behind NGMUN VIII
+                    <p className="animate-fade-in mt-4 text-sm font-semibold uppercase tracking-[0.2em] text-white/80 md:text-base">
+                        {CONFERENCE.name}
                     </p>
                 </div>
             </div>
 
-            {/* Staff Content */}
-            <div className="md:px-0 max-w-3xl relative px-4 py-12 z-40">
-                <div className="max-w-7xl mx-auto">
-                    {/* Leadership Section */}
-                    <section className="mb-16">
-                        <Card className="p-8 shadow-lg">
-                            <h2 className="text-2xl font-bold text-center mb-8">
-                                Leadership Team
-                            </h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {leadershipTeam.map((member, index) => (
-                                    <AnimateOnScroll
-                                        key={member.name}
-                                        className={`delay-${index * 100}`}
-                                    >
-                                        <StaffMemberCard member={member}/>
-                                    </AnimateOnScroll>
-                                ))}
-                            </div>
-                        </Card>
-                    </section>
+            <div className="mx-auto max-w-6xl px-6">
+                <section className="border-b border-gray-200 py-16">
+                    <SectionHeading>Leadership Team</SectionHeading>
+                    <div className="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
+                        {leadershipTeam.map((member) => (
+                            <AnimateOnScroll key={member.name}>
+                                <StaffMemberCard member={member} />
+                            </AnimateOnScroll>
+                        ))}
+                    </div>
+                </section>
 
-                    {/* Committee Staff Section */}
-                    <section className="mb-16">
-                        <Card className="p-8 backdrop-blur-sm bg-white/90 shadow-lg">
-                            <h2 className="text-2xl font-bold text-center mb-8">
-                                Committee Leadership
-                            </h2>
-                            <div className="space-y-12">
-                                {committees.map((committee) => (
-                                    <div key={committee.name} className="space-y-6">
-                                        <h3 className="text-xl font-semibold text-center text-gray-900">
-                                            {committee.name}
-                                        </h3>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-8 justify-items-center">
-                                            {committee.chairs.map((chair) => (
-                                                <AnimateOnScroll key={chair.name}>
-                                                    <StaffMemberCard member={chair}/>
-                                                </AnimateOnScroll>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ))}
+                <section className="border-b border-gray-200 py-16">
+                    <SectionHeading>Committee Leadership</SectionHeading>
+                    <div className="mt-12 divide-y divide-gray-200">
+                        {committees.map((committee) => (
+                            <div key={committee.name} className="py-10 first:pt-0">
+                                <AnimateOnScroll>
+                                    <h3 className="text-center text-sm font-bold text-black">
+                                        {committee.name}
+                                    </h3>
+                                </AnimateOnScroll>
+                                <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
+                                    {committee.chairs.map((chair) => (
+                                        <AnimateOnScroll key={chair.name}>
+                                            <StaffMemberCard member={chair} />
+                                        </AnimateOnScroll>
+                                    ))}
+                                </div>
                             </div>
-                        </Card>
-                    </section>
+                        ))}
+                    </div>
+                </section>
 
-                    {/* Faculty Advisors Section */}
-                    <section>
-                        <Card className="p-8 backdrop-blur-sm bg-white/90 shadow-lg">
-                            <h2 className="text-2xl font-bold text-center mb-8">
-                                Faculty Advisors
-                            </h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
-                                {facultyAdvisors.map((advisor) => (
-                                    <AnimateOnScroll key={advisor.name}>
-                                        <StaffMemberCard member={advisor}/>
-                                    </AnimateOnScroll>
-                                ))}
-                            </div>
-                        </Card>
-                    </section>
-                </div>
+                <section className="py-16">
+                    <SectionHeading>Faculty Advisors</SectionHeading>
+                    <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
+                        {facultyAdvisors.map((advisor) => (
+                            <AnimateOnScroll key={advisor.name}>
+                                <StaffMemberCard member={advisor} />
+                            </AnimateOnScroll>
+                        ))}
+                    </div>
+                </section>
             </div>
         </main>
     );

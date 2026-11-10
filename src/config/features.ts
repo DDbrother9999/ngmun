@@ -4,8 +4,8 @@ export const FEATURES = {
   REGISTRATION_OPEN: false,
   SHOW_EVENT_INFO: true,
   SHOW_EVENT_INFO_CARD: false,
-  SHOW_COMMITTEES: false,
-  SHOW_STAFF: false,
+  SHOW_COMMITTEES: true,
+  SHOW_STAFF: true,
   SHOW_SECRETARIAT_LETTER: false,
   EMAIL_SIGNUP: true,
 } as const;
