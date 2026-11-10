@@ -11,9 +11,6 @@ export const metadata = {
     description: FEATURES.SAVE_THE_DATE
         ? `${CONFERENCE.name} - ${CONFERENCE.date}. Save the date for the Noble and Greenough Model UN Conference.`
         : "Noble and Greenough Model UN Conference",
-    icons: {
-        icon: '/favicon.ico',
-    },
 };
 
 export default function RootLayout({
@@ -23,9 +20,6 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <head>
-                <link rel="icon" href="/favicon.ico" sizes="any"/>
-            </head>
             <body className={inter.className}>
             <div className="relative">
                 <Header/>
