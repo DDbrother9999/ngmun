@@ -24,6 +24,7 @@ const SECTIONS: { heading: string; type: Committee['type'] }[] = [
 
 function CommitteeRow({ committee, index }: { committee: Committee; index: number }) {
     const flipped = index % 2 === 1;
+    const showTitle = committee.title !== committee.committeeName;
 
     return (
         <AnimateOnScroll>
@@ -40,16 +41,17 @@ function CommitteeRow({ committee, index }: { committee: Committee; index: numbe
                             fill
                             sizes="(max-width: 768px) 100vw, 40vw"
                             quality={60}
-                            className="object-cover grayscale"
+                            className="object-cover"
                         />
                         <div
                             className="absolute inset-0 mix-blend-multiply"
-                            style={{ backgroundColor: TINTS[index % TINTS.length] }}
+                            style={{ backgroundColor: TINTS[index % TINTS.length], opacity: 0.5 }}
                         />
-                        <div className="absolute inset-0 bg-black/25" />
+                        <div className="absolute inset-0 bg-black/40" />
                         <div className="absolute inset-0 flex items-center justify-center p-6">
                             <span
                                 className="text-center text-2xl font-bold uppercase leading-tight tracking-[0.12em] text-white md:text-3xl"
+                                style={{ textShadow: "0 2px 12px rgba(0,0,0,0.55)" }}
                             >
                                 {committee.committeeName}
                             </span>
@@ -57,13 +59,15 @@ function CommitteeRow({ committee, index }: { committee: Committee; index: numbe
                     </div>
 
                     <div className="md:w-3/5">
-                        <h3
-                            className="mb-4 text-2xl font-bold leading-tight tracking-tight text-black transition-colors group-hover:text-[#4A90E2] md:text-3xl"
-                        >
-                            {committee.title}
-                        </h3>
+                        {showTitle && (
+                            <h3
+                                className="mb-4 text-2xl font-bold leading-tight tracking-tight text-black transition-colors group-hover:text-[#4A90E2] md:text-3xl"
+                            >
+                                {committee.title}
+                            </h3>
+                        )}
                         <p className="mb-8 max-w-xl leading-relaxed text-black">
-                            {committee.shortDescription}
+                            {committee.description}
                         </p>
                         <div className="space-y-1 text-sm">
                             {committee.chairs.map((chair) => (
