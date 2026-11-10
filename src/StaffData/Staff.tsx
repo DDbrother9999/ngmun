@@ -146,39 +146,39 @@ const committees: CommitteeStaff[] = [
         ]
     },
     {
-        name: "House of Odysseus + Suitors",
+        name: "House of Odysseus and Suitors",
         chairs: [
             {
                 name: "Sanjit Govindarajan",
                 role: "Head Chair",
                 image: "/profiles/Sanjit_Govindarajan.jpg",
-                committee: "House of Odysseus + Suitors",
+                committee: "Odysseus",
                 biography: "Sanjit is a junior at the Noble and Greenough School and has actively participated in Model UN since 7th grade. His involvement in the program has allowed him to significantly improve his public speaking and negotiation skills. Sanjit is super excited to hear how each delegate plans to handle the chaos in Penelope’s palace and looks forward to the passing of a constructive solution. Outside of Model UN, you can catch Sanjit teaching karate, playing tennis and squash, or watching Suits!"
             },
             {
                 name: "Madi Grossman",
                 role: "Co-Chair",
                 image: "/profiles/Madi_Grossman.jpg",
-                committee: "House of Odysseus + Suitors",
+                committee: "Odysseus",
                 biography: "Madi is a current sophomore and has participated in Model UN at Nobles since seventh grade. Throughout her time in the program, she has developed a love of active debate and public speaking. Outside of Model UN, she loves playing field hockey, rowing on the Charles, traveling, baking, and reading. She looks forward to hearing the creative strategies and negotiations from each delegate in the House of Odysseus!"
             }
         ]
     },
     {
-        name: "Harry Potter + The Ministry of Magic",
+        name: "Harry Potter and The Ministry of Magic",
         chairs: [
             {
                 name: "Lauren Peloquin",
                 role: "Head Chair",
                 image: "/profiles/Lauren_Peloquin.jpg",
-                committee: "Harry Potter + The Ministry of Magic",
+                committee: "Ministry of Magic",
                 biography: "Lauren is a senior at the Noble and Greenough School and one of the co-presidents of the Model UN Club this year, having been involved in MUN since 7th grade. Outside of MUN, she is an avid trail runner who enjoys competing in cross-country. A passionate political enthusiast and avid reader, Lauren brings energy and excitement to current events and international policy. She can’t wait to guide delegates through a memorable crisis experience."
             },
             {
                 name: "James Fair",
                 role: "Co-Chair",
                 image: "/profiles/James_Fair.jpg",
-                committee: "Harry Potter + The Ministry of Magic",
+                committee: "Ministry of Magic",
                 biography: "James Fair is a senior at Noble and Greenough School and began attending Model UN conferences in 7th grade. This is his 3rd year being involved in NGMUN committees. He is excited for a fun and lively committee and lots of creativity from the delegates. Outside of Model UN, he participates in debate, cross country, and track and field."
             }
         ]

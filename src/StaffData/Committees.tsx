@@ -72,8 +72,8 @@ const COMMITTEES: Committee[] = [
     {
         id: 'house-of-odysseus',
         type: 'Crisis',
-        committeeName: 'House of Odysseus + Suitors',
-        title: 'House of Odysseus + Suitors',
+        committeeName: 'Odysseus',
+        title: 'House of Odysseus and Suitors',
         description: `With Odysseus still missing, Penelope's palace has been overtaken by suitors competing for her hand and control of Ithaca, threatening the future of the House of Odysseus.`,
         image: 'committees/odysseusBg.jpg',
         chairs: [
@@ -85,8 +85,8 @@ const COMMITTEES: Committee[] = [
     {
         id: 'ministry-of-magic',
         type: 'Crisis',
-        committeeName: 'Harry Potter + The Ministry of Magic',
-        title: 'Harry Potter + The Ministry of Magic',
+        committeeName: 'Ministry of Magic',
+        title: 'Harry Potter and The Ministry of Magic',
         description: `Amid growing instability in the wizarding world, the Ministry of Magic faces political division, corruption, and threats to its authority, forcing influential witches and wizards to determine the future of magical governance.`,
         image: 'committees/ministryBg.jpg',
         chairs: [

@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="18de2ee7-0871-4ab4-8d79-70fa87d751b7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StaffData/Committees.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/StaffData/Committees.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StaffData/Staff.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/StaffData/Staff.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/committees/CommitteesContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/committees/CommitteesContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/committees/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/committees/[id]/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,23 +41,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.087162911832116" />
-      <entry key="MS500" value="3.2054243602417074" />
-      <entry key="S2" value="5.627492578047628" />
-      <entry key="S5" value="6.4036967626655965" />
-      <entry key="S10" value="6.693307315751037" />
-      <entry key="S30" value="6.895805493592115" />
-      <entry key="S60" value="6.947679997160138" />
-      <entry key="M2" value="7.0459287064022815" />
-      <entry key="M5" value="16.092760533852065" />
-      <entry key="M10" value="58.64052861768224" />
-      <entry key="M15" value="102.37687349494146" />
-      <entry key="M30" value="187.31661367870993" />
-      <entry key="H1" value="257.3555834311871" />
-      <entry key="H2" value="302.75546886979674" />
-      <entry key="H4" value="328.6657323139866" />
-      <entry key="D1" value="352.0993763380142" />
-      <entry key="W1" value="356.2954100482653" />
+      <entry key="MS100" value="1.9021420421652582" />
+      <entry key="MS500" value="5.154215672686879" />
+      <entry key="S2" value="12.479661902248845" />
+      <entry key="S5" value="24.064187891528146" />
+      <entry key="S10" value="33.83812215994433" />
+      <entry key="S30" value="50.38788149239106" />
+      <entry key="S60" value="67.65607147983415" />
+      <entry key="M2" value="85.88525098416021" />
+      <entry key="M5" value="109.21291180674933" />
+      <entry key="M10" value="153.13051860429113" />
+      <entry key="M15" value="197.1581228806476" />
+      <entry key="M30" value="285.05217521702616" />
+      <entry key="H1" value="359.5639449958906" />
+      <entry key="H2" value="408.6535245078696" />
+      <entry key="H4" value="436.91232301770617" />
+      <entry key="D1" value="462.6098708766131" />
+      <entry key="W1" value="467.22469662852694" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -83,23 +79,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.19950222475061816" />
-      <entry key="MS500" value="2.8365276093914717" />
-      <entry key="S2" value="5.51562576483946" />
-      <entry key="S5" value="6.35699147819634" />
-      <entry key="S10" value="6.669609839542218" />
-      <entry key="S30" value="6.887827881440462" />
-      <entry key="S60" value="6.943681257942452" />
-      <entry key="M2" value="7.043915058808808" />
-      <entry key="M5" value="16.09139772057219" />
-      <entry key="M10" value="58.63858935133246" />
-      <entry key="M15" value="102.37473489234273" />
-      <entry key="M30" value="187.31473029918476" />
-      <entry key="H1" value="257.35430749232137" />
-      <entry key="H2" value="302.7547227019651" />
-      <entry key="H4" value="328.66532836645297" />
-      <entry key="D1" value="352.0993043618178" />
-      <entry key="W1" value="356.2953996469698" />
+      <entry key="MS100" value="1.84491921984047" />
+      <entry key="MS500" value="5.115839821873522" />
+      <entry key="S2" value="12.457919599140492" />
+      <entry key="S5" value="24.047469841942593" />
+      <entry key="S10" value="33.826232154018214" />
+      <entry key="S30" value="50.3816532643332" />
+      <entry key="S60" value="67.65136101724303" />
+      <entry key="M2" value="85.88187709335254" />
+      <entry key="M5" value="109.21074640940674" />
+      <entry key="M10" value="153.12825170714407" />
+      <entry key="M15" value="197.15578521276302" />
+      <entry key="M30" value="285.0501761739328" />
+      <entry key="H1" value="359.562592857898" />
+      <entry key="H2" value="408.652732185965" />
+      <entry key="H4" value="436.91189338007814" />
+      <entry key="D1" value="462.60979419497414" />
+      <entry key="W1" value="467.2246855437776" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -157,6 +153,12 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <embedded_app_extension_list />
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
     </configuration>

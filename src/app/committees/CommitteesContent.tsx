@@ -24,7 +24,6 @@ const SECTIONS: { heading: string; type: Committee['type'] }[] = [
 
 function CommitteeRow({ committee, index }: { committee: Committee; index: number }) {
     const flipped = index % 2 === 1;
-    const showTitle = committee.title !== committee.committeeName;
 
     return (
         <AnimateOnScroll>
@@ -59,13 +58,11 @@ function CommitteeRow({ committee, index }: { committee: Committee; index: numbe
                     </div>
 
                     <div className="md:w-3/5">
-                        {showTitle && (
-                            <h3
-                                className="mb-4 text-2xl font-bold leading-tight tracking-tight text-black transition-colors group-hover:text-[#4A90E2] md:text-3xl"
-                            >
-                                {committee.title}
-                            </h3>
-                        )}
+                        <h3
+                            className="mb-4 text-2xl font-bold leading-tight tracking-tight text-black transition-colors group-hover:text-[#4A90E2] md:text-3xl"
+                        >
+                            {committee.title}
+                        </h3>
                         <p className="mb-8 max-w-xl leading-relaxed text-black">
                             {committee.description}
                         </p>

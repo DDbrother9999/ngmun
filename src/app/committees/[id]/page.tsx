@@ -46,8 +46,6 @@ export default function CommitteeDetailPage({
     return <div>Committee not found</div>;
   }
 
-  const showCommitteeName = committee.committeeName !== committee.title;
-
   return (
     <main className="min-h-screen bg-white">
       <div className="relative flex h-[60vh] w-full items-center justify-center overflow-hidden">
@@ -68,13 +66,11 @@ export default function CommitteeDetailPage({
         <div className="absolute inset-0 z-20 bg-black/45" />
 
         <div className="relative z-30 max-w-3xl px-6 text-center">
-          {showCommitteeName && (
-            <p
-              className="animate-fade-in mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-white/75 md:text-sm"
-            >
-              {committee.committeeName}
-            </p>
-          )}
+          <p
+            className="animate-fade-in mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-white/75 md:text-sm"
+          >
+            {committee.committeeName}
+          </p>
           <h1
             className="animate-fade-in-down text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl"
           >
