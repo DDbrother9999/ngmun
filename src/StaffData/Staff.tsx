@@ -115,7 +115,7 @@ const committees: CommitteeStaff[] = [
                 role: "Head Chair",
                 image: "/profiles/Bella_Bessa.jpg",
                 committee: "DISEC",
-                biography: ""
+                biography: "Bella is a junior at Nobles, and this is her fifth year in Model UN and her third year on the staff of NGMUN. In addition to Model UN, she is also involved in Nobles’ International Affairs and Mock Trial clubs. She loves listening to music, hanging out with friends and family, and reading in her free time. Bella is so excited for NGMUN IX and is thrilled to be a head chair, hoping to see productive debate and diplomacy among delegates!"
             },
             {
                 name: "Luana Keefe",
